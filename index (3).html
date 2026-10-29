@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#116E39">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Top 10">
+<title>Sinclair Top 10 — Buyer's Guide</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23116E39'/%3E%3Cg fill='white'%3E%3Cellipse cx='32' cy='44' rx='10' ry='11'/%3E%3Cellipse cx='32' cy='16' rx='5.5' ry='11'/%3E%3Cellipse cx='15' cy='27' rx='5' ry='10' transform='rotate(-28 15 27)'/%3E%3Cellipse cx='49' cy='27' rx='5' ry='10' transform='rotate(28 49 27)'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root{
+  --g:#116E39; --gd:#0b4d27; --gl:#e7f3ec; --gm:#cfe6d8;
+  --red:#E82A25; --ink:#10261a; --mute:#566b5e; --line:#d5e3da; --bg:#f5f9f6; --white:#fff;
+  --amber:#fff4d6; --amberink:#6b4a00;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{font-size:18px}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.35;min-height:100vh;padding-bottom:70px}
+button{font:inherit;color:inherit;border:0;cursor:pointer;background:none}
+input,select,textarea{font:inherit;color:var(--ink);width:100%;padding:12px 14px;border:2px solid var(--line);border-radius:12px;background:#fff}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--gm);border-color:var(--g)}
+a{color:var(--g)}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:var(--g);color:#fff;display:flex;align-items:center;gap:10px;padding:10px 14px;padding-top:max(10px,env(safe-area-inset-top));box-shadow:0 2px 10px #0003}
+.brand{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.brand svg{width:34px;height:34px;flex:none}
+.brand b{display:block;font-size:1.2rem;letter-spacing:.14em;line-height:1}
+.brand span{display:block;font-size:.72rem;opacity:.9;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{background:#fff;color:var(--g);font-weight:800;border-radius:999px;padding:10px 14px;font-size:.9rem;white-space:nowrap}
+.pill.ghost{background:#ffffff26;color:#fff}
+#count{display:inline-grid;place-items:center;background:var(--red);color:#fff;min-width:22px;height:22px;border-radius:999px;font-size:.78rem;margin-left:4px;padding:0 6px}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px}
+
+/* hero */
+.hero{background:linear-gradient(160deg,var(--g),var(--gd));color:#fff;border-radius:22px;padding:20px 18px;position:relative;overflow:hidden;margin-bottom:16px}
+.hero::after{content:"";position:absolute;right:-18px;bottom:-22px;width:150px;height:150px;opacity:.13;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='white'%3E%3Cellipse cx='32' cy='44' rx='10' ry='11'/%3E%3Cellipse cx='32' cy='16' rx='5.5' ry='11'/%3E%3Cellipse cx='15' cy='27' rx='5' ry='10' transform='rotate(-28 15 27)'/%3E%3Cellipse cx='49' cy='27' rx='5' ry='10' transform='rotate(28 49 27)'/%3E%3C/g%3E%3C/svg%3E") no-repeat center/contain;transform:rotate(14deg)}
+.hero h1{font-size:1.65rem;line-height:1.1}
+.hero p{margin-top:8px;opacity:.95;font-size:.98rem;max-width:30em}
+.upd{display:inline-block;margin-top:12px;background:#ffffff26;border-radius:999px;padding:6px 12px;font-size:.8rem;font-weight:700}
+.warn{background:var(--amber);color:var(--amberink);border-radius:14px;padding:12px 14px;margin-bottom:14px;font-weight:700;font-size:.9rem}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{min-height:128px;border-radius:20px;background:var(--g);color:#fff;padding:14px;text-align:left;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 0 var(--gd);position:relative;transition:transform .08s}
+.tile:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gd)}
+.tile .ic{font-size:2.2rem;line-height:1}
+.tile .tt{font-size:1.15rem;font-weight:800;line-height:1.1}
+.tile .ts{font-size:.76rem;opacity:.9;margin-top:3px;font-weight:600}
+.tile.promo{background:var(--red);box-shadow:0 4px 0 #9d1612}
+.tile.add{background:#fff;color:var(--g);border:3px dashed var(--g);box-shadow:none}
+.tile.add:active{transform:none;background:var(--gl)}
+.tile .bd{position:absolute;top:10px;right:10px;background:#fff;color:var(--red);font-weight:800;font-size:.8rem;border-radius:999px;padding:3px 9px}
+.link{display:block;width:100%;text-align:center;margin-top:18px;color:var(--g);font-weight:700;text-decoration:underline;padding:10px}
+
+/* category screen */
+h2.ttl{font-size:1.6rem;display:flex;align-items:center;gap:10px;line-height:1.1}
+.basis{color:var(--mute);font-size:.82rem;margin:8px 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.f{flex:none;background:#fff;border:2px solid var(--line);border-radius:999px;padding:9px 14px;font-weight:700;font-size:.88rem}
+.f.on{background:var(--g);color:#fff;border-color:var(--g)}
+.card{background:#fff;border:2px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px;display:grid;grid-template-columns:auto 1fr;gap:6px 12px}
+.card.local{border-color:#9ccbb0;background:linear-gradient(0deg,#fff,#f3faf6)}
+.rank{width:42px;height:42px;border-radius:50%;background:var(--g);color:#fff;font-weight:800;font-size:1.2rem;display:grid;place-items:center;flex:none}
+.card h3{font-size:1.15rem;line-height:1.15}
+.card .br{color:var(--mute);font-size:.86rem;margin-top:2px}
+.tag{font-size:.74rem;font-weight:800;border-radius:999px;padding:3px 9px;background:var(--gl);color:var(--gd);white-space:nowrap}
+.tag.S{background:#fff1c9;color:#6b4a00}
+.tag.T{background:#dff0ff;color:#0b4a7a}
+.tag.L{background:var(--gl);color:var(--gd)}
+.tag.N{background:#ffe3e2;color:#9d1612}
+.tag.Z{background:#ffe9d4;color:#8a3c00}
+.tag.C{background:#eee;color:#444}
+.why{grid-column:1/-1;font-size:.88rem;color:#2e4437}
+.buy{grid-column:1/-1;border:2px solid var(--g);color:var(--g);border-radius:12px;padding:11px;font-weight:800;font-size:.95rem;background:#fff}
+.buy.on{background:var(--g);color:#fff}
+.x{color:var(--red);font-weight:800;font-size:.85rem;padding:6px}
+.sec{font-size:.8rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g);margin:18px 0 8px}
+.box{background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px;margin:12px 0;font-size:.9rem}
+.box b{color:var(--gd)}
+.box ul{margin:6px 0 0 18px}
+.box li{margin:3px 0}
+.row2{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.row2 button{flex:1;min-width:140px;background:#fff;border:2px solid var(--g);color:var(--g);font-weight:800;border-radius:14px;padding:13px}
+.row2 button.solid{background:var(--g);color:#fff}
+.empty{text-align:center;color:var(--mute);padding:30px 10px}
+
+/* promos */
+.gh{font-size:1.05rem;font-weight:800;margin:20px 0 8px}
+.gh.red{color:var(--red)}
+.promo-c{background:#fff;border:2px solid var(--line);border-left:8px solid var(--g);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.promo-c.end{border-left-color:var(--red)}
+.promo-c.soon{border-left-color:#e6a100}
+.promo-c h4{font-size:1.02rem}
+.promo-c .dt{font-size:.8rem;font-weight:800;color:var(--mute);margin-top:2px}
+.promo-c p{font-size:.86rem;margin-top:4px;color:#2e4437}
+
+/* modal */
+.shade{position:fixed;inset:0;background:#000a;z-index:40;display:none;align-items:flex-end;justify-content:center}
+.shade.on{display:flex}
+.sheet{background:#fff;width:100%;max-width:560px;border-radius:24px 24px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));max-height:92vh;overflow:auto}
+.sheet h3{font-size:1.4rem;margin-bottom:6px}
+.sheet label{display:block;font-weight:800;font-size:.84rem;margin:12px 0 5px}
+.chk{display:flex;gap:10px;align-items:center;font-weight:700;margin:8px 0;font-size:.95rem}
+.chk input{width:24px;height:24px;flex:none}
+.acts{display:flex;gap:10px;margin-top:16px}
+.acts button{flex:1;padding:15px;border-radius:14px;font-weight:800;font-size:1rem}
+.acts .ok{background:var(--g);color:#fff}
+.acts .no{background:#e8eeea}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#10261a;color:#fff;padding:12px 20px;border-radius:999px;font-weight:700;z-index:60;display:none;max-width:90%;text-align:center;font-size:.9rem}
+.src li{margin:8px 0;font-size:.85rem}
+footer{max-width:760px;margin:10px auto 0;padding:0 14px 20px;color:var(--mute);font-size:.76rem;text-align:center}
+
+@media print{
+  .top,.filters,.buy,.row2,.link,footer,.x,.shade,.toast{display:none!important}
+  body{background:#fff;padding:0}
+  .card{break-inside:avoid;border:1px solid #bbb}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <button class="pill ghost" id="backBtn" hidden aria-label="Back to home">◀ Home</button>
+  <div class="brand" id="brand">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="#fff"><ellipse cx="32" cy="44" rx="10" ry="11"/><ellipse cx="32" cy="16" rx="5.5" ry="11"/><ellipse cx="15" cy="27" rx="5" ry="10" transform="rotate(-28 15 27)"/><ellipse cx="49" cy="27" rx="5" ry="10" transform="rotate(28 49 27)"/></g></svg>
+    <div><b>SINCLAIR</b><span>Top 10 · Livingston</span></div>
+  </div>
+  <button class="pill" id="listBtn" aria-label="Open my buy list">📋 Buy list<span id="count">0</span></button>
+</header>
+
+<main class="wrap" id="view"></main>
+
+<footer>
+  Guidance only — prices, flavors and availability vary by distributor.<br>
+  Always compare with your own register numbers.
+</footer>
+
+<div class="shade" id="shade"><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* =====================================================================
+   DATA — refreshed Oct 28, 2026. To refresh: ask Claude to "update the
+   Sinclair app data", then replace this file in GitHub (Vercel redeploys).
+   Tags: S top seller · T trending · L local pick · N new · C staple · Z seasonal
+   ===================================================================== */
+const UPDATED = "2026-10-28";
+const TAGS = {S:["🏆","Top seller"],T:["📈","Trending"],L:["📍","Local pick"],N:["🆕","New"],C:["⭐","Staple"],Z:["🎃","Seasonal"]};
+const I = (name,brand,tags,why)=>({name,brand,tags:tags.split(" ").filter(Boolean),why});
+
+const CATS = [
+{k:"energy",label:"Energy Drinks",icon:"⚡",sub:"Cans & shots",
+ basis:"Based on: Northern California sales counts Jan–Sep 2026 (PVS), NACS and CSP trade reports. Local picks are our judgment, not sales data.",
+ items:[
+  I("Red Bull","Original 8.4 oz · Sugar-Free · Editions","S","No. 1 in the 2026 NorCal sales counts — about 1 in 3 energy cans. Red Bull and Monster together hold roughly 77% of U.S. energy."),
+  I("Monster Energy","Green original · 16 oz","S","No. 2 brand in the NorCal counts (about 1 in 4 cans)."),
+  I("Monster Ultra White","Zero sugar · 16 oz","S T","Monster's zero-sugar cans together outsold original Monster (about 41,000 vs 39,000 units). Zero sugar is where the growth is."),
+  I("Rockstar","Original · Fruit Punched","S","No. 3 brand in the NorCal counts (about 1 in 5 cans)."),
+  I("Celsius","Kiwi Guava · Sparkling Orange","T","Third-largest U.S. energy company. Two zero-sugar flavors made the NorCal top 16."),
+  I("Alani Nu","Fall limited flavors: Witch's Brew · Ruby Apple · Voodoo Vanilla","T Z","Trade press says its limited-time flavors perform well. The fall flavors are tied to Halloween — don't overbuy now."),
+  I("Ghost Energy","16 oz · zero sugar · many flavors","S","No. 5 brand in the NorCal counts."),
+  I("Bang","Blue Razz · Peach Mango","S","Both flavors made the NorCal top 16."),
+  I("NOS","16 oz","S","No. 6 brand in the NorCal counts (about 4%)."),
+  I("Monster Mango Loco","Juice-style Monster","L","Local pick: our guess that tropical/mango flavors do well with Mexican customers. Test it against your register.")
+ ],
+ watch:["C4 Energy and Bum Energy (named as standouts by CSP)","Phorm Energy by Anheuser-Busch — a 'top 15' energy brand in Jan 2026; new Silver Lightning flavor","Monster Strawberry Shot (new) and Monster Bad Apple (announced in October)","FLRT — Monster's women-focused line (March 2026)","Yerba mate / Yerba Madre cans — your pick; no sales data found"]},
+
+{k:"soft",label:"Soft Drinks & Water",icon:"🥤",sub:"Soda, water, juice",
+ basis:"Based on: CSP beverage report, NACS Show 2026 and Tasting Table's 2026 soda reviews. Local picks are our judgment.",
+ items:[
+  I("Coca-Cola","Classic · Zero Sugar · Cherry","S","Coke Zero is named a top performer in convenience stores (CSP). Cherry Diet Coke is expected on shelves into early 2027."),
+  I("Pepsi","Classic · new Prebiotic Cola","S T","Pepsi Prebiotic Cola (including Cherry Vanilla) is named a top soda brand by CSP and one of 2026's best-reviewed new flavors."),
+  I("Dr Pepper","Regular · Zero · Creamy Coconut (limited)","S N","Dr Pepper is named a top brand by CSP. Creamy Coconut is a limited-time flavor."),
+  I("Mexican Coke","Glass bottle · cane sugar","L","Local pick: a classic with Mexican customers, especially with tacos and food."),
+  I("Jarritos","Tamarind · Mandarin · Pineapple · Guava · Lime","L","Local pick: the everyday Mexican soda."),
+  I("Topo Chico","Mineral water · flavored Sabores","L T","Flavored sparkling water sales are up 25% in dollars (CSP), and Topo Chico is a Mexican-market favorite."),
+  I("Poppi & Olipop","Prebiotic sodas","T","Named as market drivers by trade press. Shirley Temple Poppi is a 2026 favorite."),
+  I("Gatorade & Arizona","Sports drinks · iced tea","C","Everyday staples. We did not find 2026 sales data for these."),
+  I("Maaza · Thums Up · Limca","Indian mango drink, cola and lemon soda","L","Punjabi pick: drinks many Punjabi families grew up with. Ask for an Indian-grocery distributor. Our guess — check it."),
+  I("Sumol","Portuguese passion-fruit & orange soda","L","Portuguese pick: small but loyal following. Ask a Portuguese-foods distributor. Our guess — check it.")
+ ],
+ watch:["Sidral Mundet and Boing (Mexican apple soda and juices)","Barebells Protein Soda (new) and 7UP Shirley Temple (revived)","Mineragua Mas flavored mineral water (new flavors)","Mr Pibb Thrillin' Vanilla and Mug Root Beer Vanilla Howler (limited)"]},
+
+{k:"candy",label:"Candy",icon:"🍬",sub:"Chocolate, gummy, Mexican & more",
+ basis:"Based on: NACS candy report (June 2026) and NACS Show 2026. Chocolate is 34.5% of c-store candy. Local picks are our judgment.",
+ items:[
+  I("Reese's","Peanut Butter Cups · King Size","S","Chocolate is the No. 1 candy group in c-stores. Cocoa costs are pushing king-size bars toward $4."),
+  I("M&M's & Snickers","Peanut · Pop'd Caramel · Snickers Pecan","S N","Caramel is everywhere in new launches."),
+  I("Skittles & Starburst","Fuego spicy gummies · Gummy Crystals","C T","Staples with new spicy and crunchy versions."),
+  I("Sour Patch Kids","Chews and classic","T","Sour chewy gummies lead the non-chocolate side (Sour Patch Kids Chews named)."),
+  I("Lucas","Chamoy · Gusano · Salsagheti squeeze","L T","Local pick. One wholesaler calls chamoy the flavor of 2026 — that is opinion, not sales data."),
+  I("Vero","Elote · Mango · Sandigoma lollipops","L","Local pick: chili-coated sweet-and-spicy candy."),
+  I("De la Rosa Mazapán & Pulparindo","Peanut candy · tamarind candy","L","Local pick: childhood Mexican candy — your idea, and a safe bet."),
+  I("Butterfinger Salted Caramel","","T N","Drove 30% volume growth for Butterfinger (Ferrero)."),
+  I("Freeze-dried candy","SweeTarts · Lemonheads · Spree · M&M's Pop'd Caramel","T N","The breakout trend of NACS 2026. No sales numbers yet — try a few units."),
+  I("Indian candy & toffee","Pulse (Kachha Aam) · Parle Melody","L","Punjabi pick: childhood candies. Ask an Indian-grocery distributor. Our guess — check it.")
+ ],
+ watch:["Hot Tamales (new tropical heat and cinnamon apple)","Jolly Rancher Heat Wave Gummies and Trolli spicy crawlers","Gum is one of RaceTrac's strongest candy sellers; mints are small but steady"]},
+
+{k:"salty",label:"Salty Snacks",icon:"🌶️",sub:"Chips, jerky, mixes",
+ basis:"Based on: ShelfVelo fastest-moving snacks (Oct 27, 2026 — a delivery-platform sample, not national sales), C-Store Dive and NACS Show 2026.",
+ items:[
+  I("Doritos","Nacho Cheese · Cool Ranch · Spicy Sweet Chili","S T","Three of the 10 fastest-moving snacks on ShelfVelo are Doritos; Spicy Sweet Chili is No. 2."),
+  I("Cheetos Flamin' Hot","Crunchy · Puffs","S T","Crunchy Flamin' Hot is No. 4 and Cheese Puffs No. 7 on ShelfVelo."),
+  I("Chester's Fries Flamin' Hot","Regular and value size","T","No. 1 fastest-moving snack on ShelfVelo, and the value size is No. 6."),
+  I("Takis","Fuego · Nitro · Blue Heat","L","Local pick: rolled spicy tortilla chips from Mexico. Our judgment — no data in our sources."),
+  I("Lay's","Classic · Flamin' Hot","S","Potato chips are the biggest salty group — about 30% of c-store salty sales (Circana, 2024)."),
+  I("Munchies & Funyuns","Flamin' Hot snack mix · onion rings","T","Munchies Flamin' Hot mix is No. 3 and Funyuns No. 9 on ShelfVelo."),
+  I("Sabritas & Chicharrones","Churrumais · Rancheritos · pork rinds with salsa","L","Local pick: Mexican-style snacks. Our judgment."),
+  I("Pickle-flavor snacks","Cheetos Flamin' Hot Dill Pickle · Vlasic pickle snacks","T N","Pickle was a top flavor at NACS Show 2026."),
+  I("Jack Link's & Slim Jim","Meat snacks","T","Meat snacks were pushed on protein value at NACS Show 2026."),
+  I("Haldiram's","Aloo Bhujia · Punjabi Tadka mix · Moong Dal","L","Punjabi pick: a well-known Indian snack brand. Ask an Indian-grocery distributor. Our guess — check it.")
+ ],
+ watch:["Pringles Smokey Mesquite BBQ (fast-growing on ShelfVelo)","Protein chips (Doritos protein shown at NACS 2026)","Tortilla chip flavors gaining: flamin' hot queso, chili lime, Baja fiery mango","Store-brand chips are growing faster than national brands"]},
+
+{k:"sweet",label:"Sweet Snacks",icon:"🍩",sub:"Donuts, cakes, cookies",
+ basis:"Based on: NACS packaged sweet snacks report (July 2026), NIQ new-item data and ShelfVelo. Snack cakes and pastries are over half of the category.",
+ items:[
+  I("Little Debbie Honey Bun","Glazed","S","Top seller in the convenience channel in Q1 2026 (NACS)."),
+  I("Hostess Donettes","Chocolate Frosted Mini Donuts","T","No. 10 fastest-moving snack on ShelfVelo."),
+  I("Hostess Twinkies & CupCakes","","C","Everyday staples. No 2026 rank data found."),
+  I("Little Debbie new flavors","Yellow Cake Roll · Strawberry Shortcake Roll · Boston Cream Pie cookie","N","The two rolls launched in Feb 2026 and were among that month's top new items (NIQ)."),
+  I("Marinela Gansito & Pingüinos","Mexican snack cakes","L","Local pick. Our judgment."),
+  I("Bimbo Conchas & Mantecadas","Mexican sweet bread","L","Local pick. Our judgment."),
+  I("Girl Scouts Thin Mints CakeBites","","N","Among the top-selling new c-store items in March (NIQ)."),
+  I("Chips Ahoy! Brookie Baked Bites","","T","Among the fastest-growing items on ShelfVelo."),
+  I("Granola & protein bars","Quaker Maid Yogurt · protein bars","T","Protein is the big trend of 2026. Quaker Maid Strawberry Yogurt is fast-growing on ShelfVelo."),
+  I("Parle-G & Britannia Good Day","Indian tea biscuits","L","Punjabi pick: classic chai biscuits. Our guess — check it.")
+ ],
+ watch:["Candy Cane Oreo Puffs (coming in November)","Portuguese sweet bread (massa sovada) from a local bakery — your idea, no data","150+ new sweet snack items hit c-stores in Q1 2026 — ask your rep what's new"]},
+
+{k:"beer",label:"Beer",icon:"🍺",sub:"Domestic, Mexican, no-alcohol",
+ basis:"Based on: national top-10 ranking (Thirsty Bear, Oct 2026) and CSP beverage report. Michelob Ultra is No. 1 by volume, Modelo No. 1 by dollars.",
+ items:[
+  I("Modelo Especial","","S L","No. 1 beer in America by dollar sales. Also the strongest Mexican import for your customers."),
+  I("Michelob Ultra","","S T","No. 1 by volume and the fastest-growing big brand."),
+  I("Corona Extra","Also Corona Familiar","S L","No. 6 nationally and strong in the Southwest."),
+  I("Bud Light","","S","No. 3 nationally."),
+  I("Coors Light","","S","No. 5 nationally."),
+  I("Miller Lite","","S","No. 4 nationally."),
+  I("Pacifico","","L","Local pick: a California favorite among Mexican imports. It was not in the national list we used."),
+  I("Modelo Chelada","Limón y Sal · Naranja Picosa","L T","Ready-made michelada-style beer. Modelo launched its first non-alcoholic beer, a Chelada Limón y Sal, in January 2026."),
+  I("Tecate & Victoria","","L","Local pick: Mexican value beers. Our judgment."),
+  I("Non-alcoholic beer","Athletic Brewing · Heineken 0.0 · Modelo NA","T","Non-alcoholic beer was up 31.5% in c-store dollars while regular beer fell 2.2% (CSP).")
+ ],
+ watch:["Heineken, Budweiser, Guinness, Stella Artois — the rest of the national top 10","Clamato and michelada mixes (for cheladas)","Modelo Oro and Cantarito-style beers (test markets in 2022; check if they scaled)","Sagres and Super Bock (Portuguese beers) — your idea, no data"]},
+
+{k:"liquor",label:"Liquor",icon:"🥃",sub:"Spirits & ready-to-drink",
+ basis:"Based on: Distilled Spirits Council 2025 numbers (via Yahoo Finance), YouGov Q2 2026 popularity and Wikiliq rating counts. These are popularity measures, not store sales.",
+ items:[
+  I("Tito's Handmade Vodka","","S","Most-rated vodka. Vodka still leads spirits in dollars ($7B) even though volume slipped."),
+  I("Hennessy","VS","C","The most-rated cognac. A staple. No 2026 sales data found."),
+  I("Crown Royal","Fine Deluxe","S","Top-10 spirit by popularity (YouGov Q2 2026)."),
+  I("Jack Daniel's","Old No. 7 · Jack & Coke cans","S","No. 2 most popular spirit (YouGov). The canned Jack & Coke is part of the fast-growing RTD group."),
+  I("Fireball","Cinnamon whiskey · shots","S","One of the most-rated whiskeys on Wikiliq."),
+  I("Tequila: Patrón · Don Julio · Casamigos","Blanco","S L","Tequila and mezcal are No. 2 in spirit dollars ($6.4B). Casamigos, Patrón and Don Julio are top-rated."),
+  I("Value tequila: Espolòn · Cazadores · Jose Cuervo","","L","Local pick: Espolòn is the most-rated tequila on Wikiliq. Our judgment on the rest."),
+  I("Spirit RTD cans","High Noon · Surfside · Cutwater","T","RTDs are now the top spirits category by volume (85.6M cases, up 17%). High Noon leads; Surfside is the fastest-growing."),
+  I("Malt RTD cans","White Claw · Truly · Twisted Tea · Smirnoff Ice","T","Over 77% of RTD sales are malt-based."),
+  I("Smirnoff & Bacardi","","C","Top-6 on YouGov popularity. Value staples.")
+ ],
+ watch:["Baileys is the most popular spirit by YouGov rating","Captain Morgan and Maker's Mark (top-20 on YouGov)","Jim Beam is pausing production at one distillery — American whiskey is soft","Alcohol-free spirits and drinks are growing (over $1B in the U.S.)"]}
+];
+
+/* Promos: start/end are ISO dates; no end = limited time */
+const PROMOS = [
+ {n:"Halloween candy & snacks",d:"Cheetos Sweet Phantom Heat Puffs · Kit Kat Count & Witch · Oreo Ghosts · Butterfinger Skulls · TWIX Skulls · Sour Patch Kids Monster Parts · Skittles POP'd Creepy Crunch · Chips Ahoy! Mystery Cookie",cat:"Candy / Snacks",start:"2026-09-01",end:"2026-10-31",note:"Stop reordering. Mark down what's left on Nov 1."},
+ {n:"Fall energy & soda flavors",d:"Alani Nu Witch's Brew · Ruby Apple · Voodoo Vanilla · Fanta Ghost Face Punch",cat:"Energy / Soda",start:"2026-08-11",end:"2026-10-31",note:"Fall flavors fade after Halloween."},
+ {n:"Celsius Shirley Temple",d:"Limited edition zero-sugar energy drink with 20 g caffeine.",cat:"Energy",start:"2026-10-01",end:null,note:"Limited time — ask your rep how long it will last."},
+ {n:"Dr Pepper Creamy Coconut",d:"Limited-time flavor. Also: 7UP Shirley Temple (revived), Mr Pibb Thrillin' Vanilla (limited).",cat:"Soda",start:"2026-04-01",end:null,note:"Limited time."},
+ {n:"Cherry Diet Coke & Coca-Cola Cherry Float",d:"Cherry Diet Coke is expected on shelves until early 2027.",cat:"Soda",start:"2026-04-01",end:"2027-02-28",note:"Safe to keep stocking through winter."},
+ {n:"Monster Strawberry Shot",d:"New 'dirty soda' style flavor of the original Monster.",cat:"Energy",start:"2026-09-01",end:null,note:"New. Monster Bad Apple was announced in October — ask for the U.S. date."},
+ {n:"Día de Muertos",d:"Sugar skulls, pan de muerto, Mexican candy (Lucas, Vero, Mazapán, Pulparindo), Mexican sodas.",cat:"Local · Mexican",start:"2026-10-26",end:"2026-11-02",note:"Nov 1–2. Last chance this week.",local:true},
+ {n:"Candy Cane Oreo Puffs",d:"Oreo Puffs with peppermint marshmallows, dropping in November.",cat:"Sweet snacks",start:"2026-11-01",end:null,note:"Holiday limited edition."},
+ {n:"Diwali",d:"Indian sweets, snacks and gift boxes (Haldiram's), mango drinks. Falls around Nov 8 — confirm the date with your customers.",cat:"Local · Punjabi",start:"2026-11-02",end:"2026-11-09",note:"Order a few weeks ahead through an Indian-grocery distributor.",local:true},
+ {n:"Thanksgiving week",d:"Beer, tequila, mixers, ice, chips, soda, bottled water.",cat:"All categories",start:"2026-11-20",end:"2026-11-27",note:"Thursday Nov 26."},
+ {n:"Mexican hot chocolate season",d:"Abuelita and Ibarra tablets, champurrado, pan dulce, cinnamon sticks.",cat:"Local · Mexican",start:"2026-11-15",end:"2027-01-10",note:"Our guess for the winter lift. Verify with last year's register.",local:true},
+ {n:"Posadas & Nochebuena",d:"Tequila, Hennessy, beer, Mexican hot chocolate, chips and snacks, soda. Virgen de Guadalupe Dec 12, Posadas Dec 16–24, Nochebuena Dec 24.",cat:"Local · Mexican",start:"2026-12-10",end:"2026-12-25",note:"Biggest party stretch of the winter.",local:true},
+ {n:"New Year's Eve",d:"Tequila, vodka, Hennessy, RTD cans, mixers, ice, snacks.",cat:"Liquor / Beer",start:"2026-12-28",end:"2027-01-01",note:"Dec 31."},
+ {n:"Valentine's & Super Bowl",d:"Boxed candy, chocolate, beer, chips, jerky, soda. Super Bowl is mid-February.",cat:"All categories",start:"2027-02-01",end:"2027-02-15",note:"Check the exact Super Bowl date with your rep."}
+];
+
+/* =========================== APP CODE =========================== */
+const $ = id => document.getElementById(id);
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const store = {
+  get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}
+};
+let custom = store.get("snc_custom", []);
+let buy = store.get("snc_buy", {});
+let filter = "all";
+const saveCustom = () => { if(!store.set("snc_custom",custom)) toast("Couldn't save on this phone"); };
+const saveBuy = () => { if(!store.set("snc_buy",buy)) toast("Couldn't save on this phone"); };
+
+function toast(m){const t=$("toast");t.textContent=m;t.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display="none",2400)}
+const iso = s => { const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d) };
+const midnight = (d=new Date()) => new Date(d.getFullYear(),d.getMonth(),d.getDate());
+const days = (a,b) => Math.round((a-b)/86400000);
+const fmtDate = s => iso(s).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"});
+const fmtShort = s => iso(s).toLocaleDateString("en-US",{month:"short",day:"numeric"});
+const catBy = k => CATS.find(c=>c.k===k);
+const chip = t => `<span class="tag ${t}">${TAGS[t][0]} ${TAGS[t][1]}</span>`;
+
+/* ---------- promos ---------- */
+function allPromos(){
+  const mine = custom.filter(c=>c.tags.includes("Z")).map(c=>({
+    n:c.name, d:[c.brand,c.note].filter(Boolean).join(" · "), cat:(catBy(c.cat)||{label:"My item"}).label,
+    start:null, end:c.end||null, note:"Added by you.", mine:true
+  }));
+  return PROMOS.concat(mine);
+}
+function promoGroups(today){
+  const g={ending:[],now:[],soon:[]};
+  allPromos().forEach(p=>{
+    const s=p.start?iso(p.start):null, e=p.end?iso(p.end):null;
+    if(e && e<today) return;                      // finished
+    if(s && s>today){ if(days(s,today)<=120) g.soon.push(p); return; }
+    if(e && days(e,today)<=7) g.ending.push(p); else g.now.push(p);
+  });
+  g.ending.sort((a,b)=>iso(a.end)-iso(b.end));
+  g.soon.sort((a,b)=>iso(a.start)-iso(b.start));
+  return g;
+}
+function promoCount(){ const g=promoGroups(midnight()); return g.ending.length+g.now.length+g.soon.length }
+
+/* ---------- views ---------- */
+function setNav(home){ $("backBtn").hidden=home; $("brand").style.display = home?"flex":"none"; }
+function render(){
+  const h=(location.hash||"").replace(/^#\/?/,"");
+  window.scrollTo(0,0);
+  $("count").textContent = Object.keys(buy).length;
+  if(h==="promos") return viewPromos();
+  if(h==="list") return viewList();
+  if(h==="about") return viewAbout();
+  const c=catBy(h);
+  if(c) return viewCat(c);
+  viewHome();
+}
+function viewHome(){
+  setNav(true);
+  const age=days(midnight(),iso(UPDATED));
+  $("view").innerHTML = `
+    <section class="hero">
+      <h1>What are you buying today?</h1>
+      <p>Tap a button to see the Top 10 for that group — what's selling, what's trending, and what fits Livingston.</p>
+      <span class="upd">📅 Updated ${esc(fmtDate(UPDATED))}</span>
+    </section>
+    ${age>45?`<div class="warn">⚠️ This list is ${age} days old. Ask for a refresh before big orders.</div>`:""}
+    <div class="tiles">
+      ${CATS.map(c=>`<button class="tile" data-go="${c.k}"><span class="ic">${c.icon}</span><span><span class="tt">${esc(c.label)}</span><span class="ts" style="display:block">${esc(c.sub)}</span></span></button>`).join("")}
+      <button class="tile promo" data-go="promos"><span class="bd">${promoCount()}</span><span class="ic">🔥</span><span><span class="tt">Promos &amp; Seasonal</span><span class="ts" style="display:block">What's ending, what's next</span></span></button>
+      <button class="tile add" id="addTile"><span class="ic">➕</span><span><span class="tt">Add an Item</span><span class="ts" style="display:block">Track your own product</span></span></button>
+    </div>
+    <button class="link" data-go="about">How these lists are made · Sources</button>`;
+}
+function itemCard(it,id,rank){
+  const on=!!buy[id];
+  return `<article class="card ${it.tags.includes("L")?"local":""}">
+    <div class="rank">${rank}</div>
+    <div><h3>${esc(it.name)}</h3>${it.brand?`<div class="br">${esc(it.brand)}</div>`:""}<div class="chips" style="margin-top:6px">${it.tags.map(chip).join("")}</div></div>
+    <p class="why">${esc(it.why)}</p>
+    <button class="buy ${on?"on":""}" data-buy="${esc(id)}">${on?"✔ On my buy list":"➕ Add to my buy list"}</button>
+  </article>`;
+}
+function viewCat(c){
+  setNav(false);
+  const F=[["all","All"],["S","🏆 Top sellers"],["T","📈 Trending"],["L","📍 Local"],["N","🆕 New"]];
+  const mine=custom.filter(x=>x.cat===c.k);
+  const list=c.items.map((it,i)=>({it,id:c.k+"-"+(i+1),rank:i+1})).filter(x=>filter==="all"||x.it.tags.includes(filter));
+  $("view").innerHTML = `
+    <h2 class="ttl"><span>${c.icon}</span> ${esc(c.label)} — Top 10</h2>
+    <p class="basis">${esc(c.basis)}</p>
+    <div class="filters">${F.map(f=>`<button class="f ${filter===f[0]?"on":""}" data-f="${f[0]}">${f[1]}</button>`).join("")}</div>
+    ${mine.length?`<div class="sec">My items</div>`+mine.map(m=>`
+      <article class="card" style="border-color:var(--g)">
+        <div class="rank" style="background:var(--red)">★</div>
+        <div><h3>${esc(m.name)}</h3>${m.brand?`<div class="br">${esc(m.brand)}</div>`:""}<div class="chips" style="margin-top:6px">${m.tags.map(chip).join("")}${m.end?`<span class="tag">ends ${esc(fmtShort(m.end))}</span>`:""}</div></div>
+        ${m.note?`<p class="why">${esc(m.note)}</p>`:""}
+        <button class="buy ${buy[m.id]?"on":""}" data-buy="${esc(m.id)}">${buy[m.id]?"✔ On my buy list":"➕ Add to my buy list"}</button>
+        <button class="x" data-del="${esc(m.id)}" style="grid-column:1/-1;text-align:right">✕ Remove my item</button>
+      </article>`).join("")+`<div class="sec">The Top 10</div>`:""}
+    ${list.length?list.map(x=>itemCard(x.it,x.id,x.rank)).join(""):`<div class="empty">Nothing in this group matches that filter.</div>`}
+    <div class="box"><b>👀 Also on the radar</b><ul>${c.watch.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></div>
+    <div class="row2">
+      <button data-copycat="${c.k}">📄 Copy this list</button>
+      <button data-print>🖨️ Print</button>
+      <button class="solid" data-addhere="${c.k}">➕ Add item here</button>
+    </div>`;
+}
+function viewPromos(){
+  setNav(false);
+  const g=promoGroups(midnight());
+  const card=(p,kind)=>{
+    let when="";
+    if(kind==="soon") when=`Starts ${fmtShort(p.start)} · in ${days(iso(p.start),midnight())} days`;
+    else if(p.end) when=`Ends ${fmtShort(p.end)}${days(iso(p.end),midnight())<=7?" · "+(days(iso(p.end),midnight())===0?"today":"in "+days(iso(p.end),midnight())+" days"):""}`;
+    else when="Limited time — no end date";
+    return `<div class="promo-c ${kind==="ending"?"end":kind==="soon"?"soon":""}"><h4>${esc(p.n)}</h4><div class="dt">${esc(p.cat)} · ${esc(when)}</div>${p.d?`<p>${esc(p.d)}</p>`:""}${p.note?`<p><b>${esc(p.note)}</b></p>`:""}</div>`;
+  };
+  $("view").innerHTML = `
+    <h2 class="ttl"><span>🔥</span> Promos &amp; Seasonal</h2>
+    <p class="basis">Today is ${esc(midnight().toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"}))}. This list sorts itself by date — items disappear after they end. Anything you add as "seasonal" shows up here too.</p>
+    ${g.ending.length?`<div class="gh red">⏰ Ending this week</div>`+g.ending.map(p=>card(p,"ending")).join(""):""}
+    ${g.now.length?`<div class="gh">🟢 On shelves now</div>`+g.now.map(p=>card(p,"now")).join(""):""}
+    ${g.soon.length?`<div class="gh">📅 Coming up — order ahead</div>`+g.soon.map(p=>card(p,"soon")).join(""):""}
+    ${!(g.ending.length+g.now.length+g.soon.length)?`<div class="empty">No promos right now.</div>`:""}
+    <div class="row2"><button class="solid" data-addpromo>➕ Add a seasonal item</button></div>`;
+}
+function buyGroups(){
+  const by={};
+  Object.entries(buy).forEach(([id,v])=>{ (by[v.cat]=by[v.cat]||[]).push({id,...v}); });
+  return by;
+}
+function viewList(){
+  setNav(false);
+  const by=buyGroups(), keys=Object.keys(by);
+  $("view").innerHTML = `
+    <h2 class="ttl"><span>📋</span> My buy list</h2>
+    <p class="basis">Show this to the distributor: "If you carry these, I'll buy." You decide what goes on the shelf.</p>
+    ${keys.length?keys.map(k=>`<div class="sec">${esc(k)}</div>`+by[k].map(x=>`
+      <div class="promo-c" style="display:flex;gap:10px;align-items:center;justify-content:space-between">
+        <div><h4>${esc(x.name)}</h4>${x.brand?`<div class="dt">${esc(x.brand)}</div>`:""}</div>
+        <button class="x" data-unbuy="${esc(x.id)}" aria-label="Remove ${esc(x.name)}">✕</button>
+      </div>`).join("")).join("")
+    :`<div class="empty">Your list is empty.<br>Open a group and tap "➕ Add to my buy list".</div>`}
+    ${keys.length?`<div class="row2"><button class="solid" data-sharelist>📤 Send / copy list</button><button data-clearlist>🗑 Clear list</button></div>`:""}`;
+}
+function viewAbout(){
+  setNav(false);
+  $("view").innerHTML = `
+    <h2 class="ttl"><span>ℹ️</span> How these lists are made</h2>
+    <div class="box"><b>What you're looking at</b><ul>
+      <li>Each Top 10 mixes <b>published sales and ranking data</b> (🏆 top sellers), <b>trend reports</b> (📈 trending, 🆕 new) and <b>local picks</b> (📍).</li>
+      <li><b>📍 Local picks are judgment, not data.</b> Livingston is mostly Mexican, Punjabi and Portuguese families, so the lists lean toward what those customers grew up with. Check them against your own register.</li>
+      <li>Google does not publish store sales. The sources below are industry reports that are free to read.</li>
+      <li>Data does not have to be live. It was refreshed ${esc(fmtDate(UPDATED))}. A month old is fine.</li>
+    </ul></div>
+    <div class="box"><b>Main sources</b><ul class="src">
+      <li><a href="https://pvsrefreshments.com/most-popular-energy-drinks-2026/" target="_blank" rel="noopener">PVS Refreshments — most popular energy drinks 2026 (NorCal sales counts)</a></li>
+      <li><a href="https://www.nacsmagazine.com/Issues/May-2026/What%E2%80%99s-Trending-in-Energy-Drinks" target="_blank" rel="noopener">NACS Magazine — What's trending in energy drinks (May 2026)</a></li>
+      <li><a href="https://www.cspdailynews.com/beverages/beverage-breakdown-see-how-each-segment-performing-convenience-stores" target="_blank" rel="noopener">CSP — Beverage breakdown by segment</a></li>
+      <li><a href="https://www.nacsmagazine.com/issues/june-2026/candy-rises-despite-challenges" target="_blank" rel="noopener">NACS Magazine — Candy rises despite challenges (June 2026)</a></li>
+      <li><a href="https://www.nacsmagazine.com/issues/july-2026/packaged-sweet-snacks-small-but-steady" target="_blank" rel="noopener">NACS Magazine — Packaged sweet snacks (July 2026)</a></li>
+      <li><a href="https://www.cstoredive.com/news/ncas-show-2026-top-product-trends/832685/" target="_blank" rel="noopener">C-Store Dive — Top product trends at The NACS Show 2026</a></li>
+      <li><a href="https://shelfvelo.com/trending/snacks" target="_blank" rel="noopener">ShelfVelo — Trending snacks by velocity (Oct 27, 2026)</a></li>
+      <li><a href="https://www.thirstybear.com/most-popular-beers-in-america-right-now/" target="_blank" rel="noopener">Thirsty Bear — Most popular beers in America (Oct 2026)</a></li>
+      <li><a href="https://finance.yahoo.com/news/vodka-dethroned-top-selling-alcohol-195409210.html" target="_blank" rel="noopener">Yahoo Finance — Vodka dethroned (Distilled Spirits Council data)</a></li>
+      <li><a href="https://yougov.com/en-us/ratings/spirits" target="_blank" rel="noopener">YouGov — Most popular spirits (Q2 2026)</a></li>
+      <li><a href="https://www.tastingtable.com/2142107/best-worst-2026-soda-flavors/" target="_blank" rel="noopener">Tasting Table — Best new soda flavors of 2026</a></li>
+      <li><a href="https://hauntedattractionnetwork.com/halloween-candy-2026/" target="_blank" rel="noopener">Halloween candy 2026 — new releases</a></li>
+    </ul></div>
+    <div class="box"><b>Put it on the phone</b><ul>
+      <li><b>iPhone:</b> open in Safari → Share → Add to Home Screen.</li>
+      <li><b>Android:</b> open in Chrome → ⋮ menu → Add to Home screen.</li>
+      <li>Your buy list and added items are saved on that phone only.</li>
+    </ul></div>`;
+}
+
+/* ---------- actions ---------- */
+function toggleBuy(id){
+  if(buy[id]){ delete buy[id]; toast("Removed from buy list"); }
+  else{
+    let found=null;
+    CATS.forEach(c=>c.items.forEach((it,i)=>{ if(c.k+"-"+(i+1)===id) found={name:it.name,brand:it.brand,cat:c.label}; }));
+    if(!found){ const m=custom.find(x=>x.id===id); if(m) found={name:m.name,brand:m.brand,cat:(catBy(m.cat)||{label:"My items"}).label}; }
+    if(!found) return;
+    buy[id]=found; toast("Added to buy list ✔");
+  }
+  saveBuy(); render();
+}
+function listText(){
+  const by=buyGroups(), lines=["SINCLAIR BUY LIST — "+midnight().toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}),"If you carry these, I'll buy:",""];
+  Object.keys(by).forEach(k=>{ lines.push(k.toUpperCase()); by[k].forEach(x=>lines.push("• "+x.name+(x.brand?" ("+x.brand+")":""))); lines.push(""); });
+  return lines.join("\n").trim();
+}
+function catText(c){
+  return ["SINCLAIR — "+c.label+" Top 10","(guide updated "+fmtDate(UPDATED)+")",""].concat(c.items.map((it,i)=>(i+1)+". "+it.name+(it.brand?" — "+it.brand:""))).join("\n");
+}
+function copyText(t,msg){
+  const done=()=>toast(msg||"Copied ✔");
+  if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(done).catch(()=>prompt("Copy this:",t)); }
+  else prompt("Copy this:",t);
+}
+function shareList(){
+  const t=listText();
+  if(navigator.share){ navigator.share({title:"Sinclair buy list",text:t}).catch(()=>{}); }
+  else copyText(t,"List copied — paste it into a text");
+}
+
+/* ---------- add item ---------- */
+function openAdd(cat,seasonal){
+  const opts=CATS.map(c=>`<option value="${c.k}" ${c.k===cat?"selected":""}>${esc(c.icon+" "+c.label)}</option>`).join("");
+  $("sheet").innerHTML = `
+    <h3>➕ Add an item</h3>
+    <label for="aCat">Which group?</label><select id="aCat">${opts}</select>
+    <label for="aName">Item name *</label><input id="aName" placeholder="Example: Mango Chamoy Gummies" autocomplete="off">
+    <label for="aBrand">Brand / size (optional)</label><input id="aBrand" placeholder="Example: 12 oz can" autocomplete="off">
+    <label for="aNote">Note (optional)</label><input id="aNote" placeholder="Example: Local maker, delivers Fridays" autocomplete="off">
+    <div style="margin-top:10px">
+      <label class="chk"><input type="checkbox" id="aT"> 📈 Trending</label>
+      <label class="chk"><input type="checkbox" id="aL"> 📍 Local pick</label>
+      <label class="chk"><input type="checkbox" id="aZ" ${seasonal?"checked":""}> 🎃 Seasonal / limited time</label>
+    </div>
+    <div id="endWrap" style="display:${seasonal?"block":"none"}"><label for="aEnd">Last day it's available (optional)</label><input type="date" id="aEnd"></div>
+    <div class="acts"><button class="no" id="aCancel">Cancel</button><button class="ok" id="aSave">Save</button></div>`;
+  $("shade").classList.add("on");
+  $("aZ").onchange=()=>{ $("endWrap").style.display=$("aZ").checked?"block":"none"; };
+  $("aCancel").onclick=closeSheet;
+  $("aSave").onclick=()=>{
+    const name=$("aName").value.trim();
+    if(!name){ toast("Please type the item name"); $("aName").focus(); return; }
+    const tags=[]; if($("aT").checked) tags.push("T"); if($("aL").checked) tags.push("L"); if($("aZ").checked) tags.push("Z");
+    custom.push({id:"my-"+Date.now().toString(36)+Math.random().toString(36).slice(2,5),cat:$("aCat").value,name,brand:$("aBrand").value.trim(),note:$("aNote").value.trim(),tags,end:$("aZ").checked?($("aEnd").value||null):null});
+    saveCustom(); closeSheet(); toast("Saved ✔");
+    location.hash="#/"+$("aCat").value; render();
+  };
+}
+function closeSheet(){ $("shade").classList.remove("on"); }
+
+/* ---------- events ---------- */
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button,[data-go]"); if(!t) return;
+  if(t.dataset.go){ location.hash="#/"+t.dataset.go; return; }
+  if(t.id==="addTile"){ openAdd("energy",false); return; }
+  if(t.dataset.addhere){ openAdd(t.dataset.addhere,false); return; }
+  if(t.hasAttribute("data-addpromo")){ openAdd("candy",true); return; }
+  if(t.dataset.f){ filter=t.dataset.f; render(); return; }
+  if(t.dataset.buy){ toggleBuy(t.dataset.buy); return; }
+  if(t.dataset.unbuy){ delete buy[t.dataset.unbuy]; saveBuy(); render(); return; }
+  if(t.dataset.del){ if(confirm("Remove this item?")){ custom=custom.filter(x=>x.id!==t.dataset.del); delete buy[t.dataset.del]; saveCustom(); saveBuy(); render(); } return; }
+  if(t.dataset.copycat){ copyText(catText(catBy(t.dataset.copycat)),"Top 10 copied ✔"); return; }
+  if(t.hasAttribute("data-print")){ window.print(); return; }
+  if(t.hasAttribute("data-sharelist")){ shareList(); return; }
+  if(t.hasAttribute("data-clearlist")){ if(confirm("Clear your whole buy list?")){ buy={}; saveBuy(); render(); } return; }
+});
+$("backBtn").onclick=()=>{ filter="all"; location.hash=""; if(!location.hash) render(); };
+$("listBtn").onclick=()=>{ location.hash="#/list"; };
+$("shade").addEventListener("click",e=>{ if(e.target===$("shade")) closeSheet(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeSheet(); });
+window.addEventListener("hashchange",()=>{ filter="all"; render(); });
+render();
+</script>
+</body>
+</html>
